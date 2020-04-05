@@ -21,7 +21,7 @@ class Country {
 
     data = standardizeDate(
       _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase();
+        return key.toLowerCase().replace(new RegExp(" ", "g"), '_');
       })
     );
 
@@ -35,7 +35,7 @@ class Country {
 
     data = standardizeDate(
       _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase();
+        return key.toLowerCase().replace(new RegExp(" ", "g"), '_');
       })
     );
 
@@ -128,7 +128,7 @@ class Country {
 
     data = standardizeDate(
       _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase();
+        return key.toLowerCase().replace(new RegExp(" ", "g"), '_')
       })
     );
 
@@ -147,7 +147,7 @@ class Country {
 
     data = standardizeDate(
       _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase();
+        return key.toLowerCase().replace(new RegExp(" ", "g"), '_');
       })
     );
 
