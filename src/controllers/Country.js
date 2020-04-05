@@ -46,14 +46,14 @@ class Country {
 
     data = _.mapValues(lowerObj, function (o) {
       if (o != undefined && o.country_region.toLowerCase() == country) {
-        let date = moment(o["last_update"]);
-        o.last_update = date.format("YYYY-MM-DD");
+        let date = moment(o["date"]);
+        o.date = date.format("YYYY-MM-DD");
         return o;
       }
       return
     });
 
-    data = _.keyBy(data, 'last_update', function (value, key) {
+    data = _.keyBy(data, 'date', function (value, key) {
       return key
     });
 
@@ -73,14 +73,14 @@ class Country {
 
     data = _.mapValues(lowerObj, function (o) {
       if (0 != undefined && o.country_region.toLowerCase() == country) {
-        let date = moment(o["last_update"]);
-        o.last_update = date.format("YYYY-MM-DD");
+        let date = moment(o["date"]);
+        o.date = date.format("YYYY-MM-DD");
         return o
       };
       return
     });
 
-    data = _.keyBy(data, 'last_update', function (value, key) {
+    data = _.keyBy(data, 'date', function (value, key) {
       return key.toLowerCase();
     });
 
@@ -105,14 +105,14 @@ class Country {
 
     data = _.mapValues(lowerObj, function (o) {
       if (o.country_region.toLowerCase() == country) {
-        let date = moment(o["last_update"]);
-        o.last_update = date.format("YYYY-MM-DD");
+        let date = moment(o["date"]);
+        o.date = date.format("YYYY-MM-DD");
         return o
       };
       return
     });
 
-    data = _.keyBy(data, 'last_update', function (value, key) {
+    data = _.keyBy(data, 'date', function (value, key) {
       return key.toLowerCase();
     });
 
