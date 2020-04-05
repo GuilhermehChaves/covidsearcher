@@ -1,11 +1,12 @@
 const _ = require('lodash');
+const moment = require('moment');
 
 exports.lowerCaseKeys = (obj) => {
   var lowerObj = []
 
   _.mapKeys(obj, function (value, key) {
     _.transform(value, function (result, val, key) {
-      if(key == "Last_Update") key = "date";
+      if (key == "Last_Update") key = "date";
       result[key.toLowerCase().replace(' ', '_')] = val;
       lowerObj.push(result);
     });
@@ -77,4 +78,19 @@ exports.formatDates = (obj) => {
   });
 
   return formatedJSON;
+}
+
+exports.standardizeDate = (obj) => {
+    return (
+      _.mapValues(obj, function (o) {
+        if(o !== undefined){
+          let date = moment(o["date"]);
+          o.date = date.format("YYYY-MM-DD");
+
+          return o
+        }
+
+        return
+      })
+    );
 }
