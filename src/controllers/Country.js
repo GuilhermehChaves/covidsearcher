@@ -1,8 +1,7 @@
-const _ =  require('lodash');
-const moment = require('moment');
+const _ = require('lodash');
 
-const CSVParser = require( '../csv/CSVParser');
-const { lowerCaseKeys, formatDates } = require('../util');
+const CSVParser = require('../csv/CSVParser');
+const { lowerCaseKeys, formatDates, standardizeDate } = require('../util');
 
 class Country {
   constructor() {
@@ -20,9 +19,11 @@ class Country {
     let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv');
     const lowerObj = lowerCaseKeys(data);
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-      return key.toLowerCase();
-    });
+    data = standardizeDate(
+      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
+        return key.toLowerCase();
+      })
+    );
 
     return response.json(data);
   }
@@ -32,9 +33,11 @@ class Country {
     const lowerObj = lowerCaseKeys(data);
     const { country } = request.params;
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-      return key.toLowerCase();
-    });
+    data = standardizeDate(
+      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
+        return key.toLowerCase();
+      })
+    );
 
     return response.json(data[country]);
   }
@@ -44,14 +47,14 @@ class Country {
     const lowerObj = lowerCaseKeys(data);
     let { country } = request.params;
 
-    data = _.mapValues(lowerObj, function (o) {
-      if (o != undefined && o.country_region.toLowerCase() == country) {
-        let date = moment(o["date"]);
-        o.date = date.format("YYYY-MM-DD");
-        return o;
-      }
-      return
-    });
+    data = standardizeDate(
+      _.mapValues(lowerObj, function (o) {
+        if (o != undefined && o.country_region.toLowerCase() == country) {
+          return o;
+        }
+        return
+      })
+    );
 
     data = _.keyBy(data, 'date', function (value, key) {
       return key
@@ -71,14 +74,14 @@ class Country {
     const lowerObj = lowerCaseKeys(data);
     let { country, field, value } = request.params;
 
-    data = _.mapValues(lowerObj, function (o) {
-      if (0 != undefined && o.country_region.toLowerCase() == country) {
-        let date = moment(o["date"]);
-        o.date = date.format("YYYY-MM-DD");
-        return o
-      };
-      return
-    });
+    data = standardizeDate(
+      _.mapValues(lowerObj, function (o) {
+        if (o != undefined && o.country_region.toLowerCase() == country) {
+          return o
+        };
+        return
+      })
+    );
 
     data = _.keyBy(data, 'date', function (value, key) {
       return key.toLowerCase();
@@ -103,14 +106,14 @@ class Country {
     const lowerObj = lowerCaseKeys(data);
     let { country, field, value } = request.params;
 
-    data = _.mapValues(lowerObj, function (o) {
-      if (o.country_region.toLowerCase() == country) {
-        let date = moment(o["date"]);
-        o.date = date.format("YYYY-MM-DD");
-        return o
-      };
-      return
-    });
+    data = standardizeDate(
+      _.mapValues(lowerObj, function (o) {
+        if (o.country_region.toLowerCase() == country) {
+          return o
+        };
+        return
+      })
+    );
 
     data = _.keyBy(data, 'date', function (value, key) {
       return key.toLowerCase();
@@ -135,9 +138,11 @@ class Country {
     const lowerObj = lowerCaseKeys(data);
     const { field, value } = request.params;
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-      return key.toLowerCase();
-    });
+    data = standardizeDate(
+      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
+        return key.toLowerCase();
+      })
+    );
 
     data = _.mapValues(data, function (o) {
       if (parseInt(o[field]) < value) return o;
@@ -152,9 +157,11 @@ class Country {
     const lowerObj = lowerCaseKeys(data);
     const { field, value } = request.params;
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-      return key.toLowerCase();
-    });
+    data = standardizeDate(
+      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
+        return key.toLowerCase();
+      })
+    );
 
     data = _.mapValues(data, function (o) {
       if (parseInt(o[field]) > value) return o;
