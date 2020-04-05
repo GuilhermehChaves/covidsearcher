@@ -9,509 +9,530 @@
 </head>
 
 <body>
-    <div>
-        <h2 class="text-gray-700 text-xl ml-6">
-            <a href="https://github.com/GuilhermehChaves/covidsearcher">
-                Covid searcher API
-            </a>
-        </h2>
+    <div class="grid grid-cols-12 mt-2 sm:mt-16 md:mt-16 lg:mt-16 xl:mt-16">
+        <div class="
+        xl:col-start-4 xl:col-end-10
+        lg:col-start-3 lg:col-end-11 
+        md:col-start-2 md:col-end-12
+        sm:col-start-2 sm:col-end-12
+        col-start-2 cols-end-12
+        border border-gray-400 mb-6 rounded">
 
-        <br />
+            <h2 class="text-gray-700 text-xl ml-6 mt-1 underline">
+                <a href="https://github.com/GuilhermehChaves/covidsearcher">
+                    Covid searcher API
+                </a>
+            </h2>
 
-        <p class="ml-6 text-gray-700">
-            An API made for get info about covid-19
-        </p>
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            <i class="fab fa-github"></i> The docs is available at Github too:
-            <a href="https://github.com/GuilhermehChaves/covidsearcher" class="underline">
-                Repository
-            </a>
-        </p>
-
-        <br />
-
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                Base URL: http://www.covidsearcher.com
+            <p class="ml-6 text-gray-700">
+                An API made for get info about covid-19
             </p>
-        </div>
 
-        <br />
-
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/countries/total
+            <p class="ml-6 text-gray-700">
+                <i class="fab fa-github text-lg"></i> The docs is available at Github too:
+                <a href="https://github.com/GuilhermehChaves/covidsearcher" class="underline">
+                    Repository
+                </a>
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "australia": { <br />
-            "country_region": "Australia",<br />
-            "date": "2020-04-04",<br />
-            "lat": "-25.0",<br />
-            "long": "133.0",<br />
-            "confirmed": "5330",<br />
-            "deaths": "28",<br />
-            "recovered": "649",<br />
-            "active": "4653"<br />
-            },<br />
-            "austria": {<br />
-            "country_region": "Austria",<br />
-            "date": "2020-04-04",<br />
-            "lat": "47.5162",<br />
-            "long": "14.5501",<br />
-            "confirmed": "11524",<br />
-            "deaths": "168",<br />
-            "recovered": "2022",<br />
-            "active": "9334"<br />
-            },<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    Base URL: http://www.covidsearcher.com
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">Returns the latest information about total cases of countries</p>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/countries/total
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/countries/:country/total
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "australia": { <br />
+                "country_region": "Australia",<br />
+                "date": "2020-04-04",<br />
+                "lat": "-25.0",<br />
+                "long_": "133.0",<br />
+                "confirmed": "5330",<br />
+                "deaths": "28",<br />
+                "recovered": "649",<br />
+                "active": "4653"<br />
+                },<br />
+                "austria": {<br />
+                "country_region": "Austria",<br />
+                "date": "2020-04-04",<br />
+                "lat": "47.5162",<br />
+                "long_": "14.5501",<br />
+                "confirmed": "11524",<br />
+                "deaths": "168",<br />
+                "recovered": "2022",<br />
+                "active": "9334"<br />
+                },<br />
+                ...
+            </div>
+
+            <br />
+
+            <p class="ml-6 text-gray-700">Returns the latest information about total cases of countries</p>
+
+            <br />
+
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/countries/:country/total
+                </p>
+            </div>
+
+            <br />
+
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-04-04",<br />
+                "lat": "-25.0",<br />
+                "long_": "133.0",<br />
+                "confirmed": "5330",<br />
+                "deaths": "28",<br />
+                "recovered": "649",<br />
+                "active": "4653"<br />
+                }<br />
+                ...
+            </div>
+
+            <br />
+
+            <p class="ml-6 text-gray-700">
+                Returns the latest information about total cases of an specific country <br />
+                <span class="bg-gray-200 rounded">:country</span> is a country name
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-04-04",<br />
-            "lat": "-25.0",<br />
-            "long": "133.0",<br />
-            "confirmed": "5330",<br />
-            "deaths": "28",<br />
-            "recovered": "649",<br />
-            "active": "4653"<br />
-            }<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/countries/:country/time
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            Returns the latest information about total cases of an specific country <br />
-            <span class="bg-gray-200 rounded">:country</span> is a country name
-        </p>
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "jan": [<br />
+                {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-01-22",<br />
+                "confirmed": "0",<br />
+                "deaths": "0",<br />
+                "recovered": "",<br />
+                "active": "",<br />
+                "delta_confirmed": "0",<br />
+                "delta_recovered": ""<br />
+                },<br />
+                {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-01-23",<br />
+                "confirmed": "0",<br />
+                "deaths": "0",<br />
+                "recovered": "",<br />
+                "active": "",<br />
+                "delta_confirmed": "0",<br />
+                "delta_recovered": ""<br />
+                },<br />
+                ...
+            </div>
 
-        <br />
+            <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/countries/:country/time
+            <p class="ml-6 text-gray-700">
+                Returns data from an specific country per time<br />
+                <span class="bg-gray-200 rounded">:country</span> is a country name
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "jan": [<br />
-            {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-01-22",<br />
-            "confirmed": "0",<br />
-            "deaths": "0",<br />
-            "recovered": "",<br />
-            "active": "",<br />
-            "delta_confirmed": "0",<br />
-            "delta_recovered": ""<br />
-            },<br />
-            {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-01-23",<br />
-            "confirmed": "0",<br />
-            "deaths": "0",<br />
-            "recovered": "",<br />
-            "active": "",<br />
-            "delta_confirmed": "0",<br />
-            "delta_recovered": ""<br />
-            },<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6 mr-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/countries/where/:field/smaller/:value
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            Returns data from an specific country per time<br />
-            <span class="bg-gray-200 rounded">:country</span> is a country name
-        </p>
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "australia": {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-04-04",<br />
+                "lat": "-25.0",<br />
+                "long_": "133.0",<br />
+                "confirmed": "5330",<br />
+                "deaths": "28",<br />
+                "recovered": "649",<br />
+                "active": "4653"<br />
+                },<br />
+                "austria": {<br />
+                "country_region": "Austria",<br />
+                "date": "2020-04-04",<br />
+                "lat": "47.5162",<br />
+                "long_": "14.5501",<br />
+                "confirmed": "11524",<br />
+                "deaths": "168",<br />
+                "recovered": "2022",<br />
+                "active": "9334"<br />
+                },<br />
+                ...
+            </div>
 
-        <br />
+            <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/countries/where/:field/smaller/:value
+            <p class="ml-6 text-gray-700">
+                Returns countries where the value of <span class="bg-gray-200 rounded">:field </span>is smaller than
+                <span class="bg-gray-200 rounded">:value</span> <br />
+
+                <span class="bg-gray-200 rounded">:field</span> can be <span
+                    class="bg-gray-200 rounded">confirmed</span>,
+                <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span>
+                <br />
+
+                <snan class="bg-gray-200 rounded">:value</snan> is an integer value
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "australia": {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-04-04",<br />
-            "lat": "-25.0",<br />
-            "long": "133.0",<br />
-            "confirmed": "5330",<br />
-            "deaths": "28",<br />
-            "recovered": "649",<br />
-            "active": "4653"<br />
-            },<br />
-            "austria": {<br />
-            "country_region": "Austria",<br />
-            "date": "2020-04-04",<br />
-            "lat": "47.5162",<br />
-            "long": "14.5501",<br />
-            "confirmed": "11524",<br />
-            "deaths": "168",<br />
-            "recovered": "2022",<br />
-            "active": "9334"<br />
-            },<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/countries/where/:field/greater/:value
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            Returns countries where the value of <span class="bg-gray-200 rounded">:field </span>is smaller than <span
-                class="bg-gray-200 rounded">:value</span> <br />
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "china": {<br />
+                "country_region": "China",<br />
+                "date": "2020-04-04",<br />
+                "lat": "30.5928",<br />
+                "long_": "114.3055",<br />
+                "confirmed": "82518",<br />
+                "deaths": "3330",<br />
+                "recovered": "76923",<br />
+                "active": "2265"<br />
+                },<br />
+                "france": {<br />
+                "country_region": "France",<br />
+                "date": "2020-04-04",<br />
+                "lat": "46.2276",<br />
+                "long_": "2.2137",<br />
+                "confirmed": "65202",<br />
+                "deaths": "6520",<br />
+                "recovered": "14135",<br />
+                "active": "44547"<br />
+                },<br />
+                ...
+            </div>
 
-            <span class="bg-gray-200 rounded">:field</span> can be <span class="bg-gray-200 rounded">confirmed</span>,
-            <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span> <br />
+            <br />
 
-            <snan class="bg-gray-200 rounded">:value</snan> is an integer value
-        </p>
+            <p class="ml-6 text-gray-700">
+                Returns countries where the value of <span class="bg-gray-200 rounded">:field</span> is greater than
+                <span class="bg-gray-200 rounded">:value</span> <br />
 
-        <br />
+                <span class="bg-gray-200 rounded">:field</span> can be <span
+                    class="bg-gray-200 rounded">confirmed</span>,
+                <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span>
+                <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/countries/where/:field/greater/:value
+                <snan class="bg-gray-200 rounded">:value</snan> is an integer value
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "china": {<br />
-            "country_region": "China",<br />
-            "date": "2020-04-04",<br />
-            "lat": "30.5928",<br />
-            "long": "114.3055",<br />
-            "confirmed": "82518",<br />
-            "deaths": "3330",<br />
-            "recovered": "76923",<br />
-            "active": "2265"<br />
-            },<br />
-            "france": {<br />
-            "country_region": "France",<br />
-            "date": "2020-04-04",<br />
-            "lat": "46.2276",<br />
-            "long": "2.2137",<br />
-            "confirmed": "65202",<br />
-            "deaths": "6520",<br />
-            "recovered": "14135",<br />
-            "active": "44547"<br />
-            },<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/countries/:country/where/:field/smaller/:value
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            Returns countries where the value of <span class="bg-gray-200 rounded">:field</span> is greater than <span
-                class="bg-gray-200 rounded">:value</span> <br />
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "jan": [<br />
+                {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-01-22",<br />
+                "confirmed": "0",<br />
+                "deaths": "0",<br />
+                "recovered": "",<br />
+                "active": "",<br />
+                "delta_confirmed": "0",<br />
+                "delta_recovered": ""<br />
+                },<br />
+                {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-01-23",<br />
+                "confirmed": "0",<br />
+                "deaths": "0",<br />
+                "recovered": "",<br />
+                "active": "",<br />
+                "delta_confirmed": "0",<br />
+                "delta_recovered": ""<br />
+                },<br />
+                ...
+            </div>
 
-            <span class="bg-gray-200 rounded">:field</span> can be <span class="bg-gray-200 rounded">confirmed</span>,
-            <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span> <br />
+            <br />
 
-            <snan class="bg-gray-200 rounded">:value</snan> is an integer value
-        </p>
+            <p class="ml-6 text-gray-700">
+                Returns dates from an specific <span class="bg-gray-200 rounded">:country</span> where the value of
+                <span class="bg-gray-200 rounded">:field</span> is smaller than <span
+                    class="bg-gray-200 rounded">:value</span> <br />
 
-        <br />
+                <span class="bg-gray-200 rounded">:country</span> is a country name <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/countries/:country/where/:field/smaller/:value
+                <span class="bg-gray-200 rounded">:field</span> can be <span
+                    class="bg-gray-200 rounded">confirmed</span>,
+                <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span>
+                <br />
+
+                <snan class="bg-gray-200 rounded">:value</snan> is an integer value
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "jan": [<br />
-            {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-01-22",<br />
-            "confirmed": "0",<br />
-            "deaths": "0",<br />
-            "recovered": "",<br />
-            "active": "",<br />
-            "delta_confirmed": "0",<br />
-            "delta_recovered": ""<br />
-            },<br />
-            {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-01-23",<br />
-            "confirmed": "0",<br />
-            "deaths": "0",<br />
-            "recovered": "",<br />
-            "active": "",<br />
-            "delta_confirmed": "0",<br />
-            "delta_recovered": ""<br />
-            },<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/countries/:country/where/:field/greater/:value
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            Returns dates from an specific <span class="bg-gray-200 rounded">:country</span> where the value of <span
-                class="bg-gray-200 rounded">:field</span> is smaller than <span
-                class="bg-gray-200 rounded">:value</span> <br />
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "apr": [<br />
+                {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-04-02",<br />
+                "confirmed": "5116",<br />
+                "deaths": "24",<br />
+                "recovered": "",<br />
+                "active": "",<br />
+                "delta_confirmed": "254",<br />
+                "delta_recovered": ""<br />
+                },<br />
+                {<br />
+                "country_region": "Australia",<br />
+                "date": "2020-04-03",<br />
+                "confirmed": "5330",<br />
+                "deaths": "28",<br />
+                "recovered": "",<br />
+                "active": "",<br />
+                "delta_confirmed": "214",<br />
+                "delta_recovered": ""<br />
+                }<br />
+                ...
+            </div>
 
-            <span class="bg-gray-200 rounded">:country</span> is a country name <br />
+            <br />
 
-            <span class="bg-gray-200 rounded">:field</span> can be <span class="bg-gray-200 rounded">confirmed</span>,
-            <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span> <br />
+            <p class="ml-6 text-gray-700">
+                Returns dates from an specific <span class="bg-gray-200 rounded">:country</span> where the value of
+                <span class="bg-gray-200 rounded">:field</span> is greater than <span
+                    class="bg-gray-200 rounded">:value</span> <br />
 
-            <snan class="bg-gray-200 rounded">:value</snan> is an integer value
-        </p>
+                <span class="bg-gray-200 rounded">:country</span> is a country name <br />
 
-        <br />
+                <span class="bg-gray-200 rounded">:field</span> can be <span
+                    class="bg-gray-200 rounded">confirmed</span>,
+                <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span>
+                <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/countries/:country/where/:field/greater/:value
+                <snan class="bg-gray-200 rounded">:value</snan> is an integer value
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "apr": [<br />
-            {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-04-02",<br />
-            "confirmed": "5116",<br />
-            "deaths": "24",<br />
-            "recovered": "",<br />
-            "active": "",<br />
-            "delta_confirmed": "254",<br />
-            "delta_recovered": ""<br />
-            },<br />
-            {<br />
-            "country_region": "Australia",<br />
-            "date": "2020-04-03",<br />
-            "confirmed": "5330",<br />
-            "deaths": "28",<br />
-            "recovered": "",<br />
-            "active": "",<br />
-            "delta_confirmed": "214",<br />
-            "delta_recovered": ""<br />
-            }<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/world/total/time
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            Returns dates from an specific <span class="bg-gray-200 rounded">:country</span> where the value of <span
-                class="bg-gray-200 rounded">:field</span> is greater than <span
-                class="bg-gray-200 rounded">:value</span> <br />
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "jan": [<br />
+                {<br />
+                "date": "2020-01-22",<br />
+                "confirmed": "555",<br />
+                "recovered": "28",<br />
+                "deaths": "17",<br />
+                "increase_rate": ""<br />
+                },<br />
+                {<br />
+                "date": "2020-01-23",<br />
+                "confirmed": "654",<br />
+                "recovered": "30",<br />
+                "deaths": "18",<br />
+                "increase_rate": "17.83783783783784"<br />
+                },<br />
+                ...
+            </div>
 
-            <span class="bg-gray-200 rounded">:country</span> is a country name <br />
+            <br />
 
-            <span class="bg-gray-200 rounded">:field</span> can be <span class="bg-gray-200 rounded">confirmed</span>,
-            <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span> <br />
+            <p class="ml-6 text-gray-700">Returns data from the world per time</p>
 
-            <snan class="bg-gray-200 rounded">:value</snan> is an integer value
-        </p>
+            <br />
 
-        <br />
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/world/total/time/:date
+                </p>
+            </div>
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/world/total/time
+            <br />
+
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                {<br />
+                "date": "2020-01-22",<br />
+                "confirmed": "555",<br />
+                "recovered": "28",<br />
+                "deaths": "17",<br />
+                "increase_rate": ""<br />
+                }<br />
+                ...
+            </div>
+
+            <br />
+
+            <p class="ml-6 text-gray-700">
+                Returns data from world of an specific date <br />
+                <span class="bg-gray-200 rounded">:date</span> is a date YYYY-MM-DD
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "jan": [<br />
-            {<br />
-            "date": "2020-01-22",<br />
-            "confirmed": "555",<br />
-            "recovered": "28",<br />
-            "deaths": "17",<br />
-            "increase_rate": ""<br />
-            },<br />
-            {<br />
-            "date": "2020-01-23",<br />
-            "confirmed": "654",<br />
-            "recovered": "30",<br />
-            "deaths": "18",<br />
-            "increase_rate": "17.83783783783784"<br />
-            },<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/world/total
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">Returns data from the world per time</p>
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                {<br />
+                "date": "2020-03-31",<br />
+                "confirmed": "857487",<br />
+                "recovered": "178034",<br />
+                "deaths": "42107",<br />
+                "increase rate": "9.601912150978125"<br />
+                }<br />
+                ...
+            </div>
 
-        <br />
+            <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/world/total/time/:date
+            <p class="ml-6 text-gray-700">
+                Returns the latest uptade from the world
             </p>
-        </div>
 
-        <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            {<br />
-            "date": "2020-01-22",<br />
-            "confirmed": "555",<br />
-            "recovered": "28",<br />
-            "deaths": "17",<br />
-            "increase_rate": ""<br />
-            }<br />
-            ...
-        </div>
+            <br />
 
-        <br />
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/world/total/time/where/:field/smaller/:value
+                </p>
+            </div>
 
-        <p class="ml-6 text-gray-700">
-            Returns data from world of an specific date <br />
-            <span class="bg-gray-200 rounded">:date</span> is a date YYYY-MM-DD
-        </p>
+            <br />
 
-        <br />
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "jan": [<br />
+                {<br />
+                "date": "2020-01-22",<br />
+                "confirmed": "555",<br />
+                "recovered": "28",<br />
+                "deaths": "17",<br />
+                "increase_rate": ""<br />
+                },<br />
+                {<br />
+                "date": "2020-01-23",<br />
+                "confirmed": "654",<br />
+                "recovered": "30",<br />
+                "deaths": "18",<br />
+                "increase_rate": "17.83783783783784"<br />
+                },<br />
+                ...
+            </div>
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/world/total
+            <br />
+
+            <p class="ml-6 text-gray-700">
+                Returns from world where the value of <span class="bg-gray-200 rounded">:field</span> is smaller than
+                <span class="bg-gray-200 rounded">:value</span> <br />
+
+                <span class="bg-gray-200 rounded">:field</span> can be <span
+                    class="bg-gray-200 rounded">confirmed</span>,
+                <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span>
+                <br />
+
+                <snan class="bg-gray-200 rounded">:value</snan> is an integer value
             </p>
-        </div>
 
-        <br />
+            <br />
 
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            {<br />
-            "date": "2020-03-31",<br />
-            "confirmed": "857487",<br />
-            "recovered": "178034",<br />
-            "deaths": "42107",<br />
-            "increase rate": "9.601912150978125"<br />
-            }<br />
-            ...
-        </div>
+            <div class="flex items-center justify-start ml-6">
+                <p class="bg-gray-200 text-gray-700 rounded">
+                    GET /v1/world/total/time/where/:field/greater/:value
+                </p>
+            </div>
 
-        <br />
+            <br />
 
-        <p class="ml-6 text-gray-700">
-            Returns the latest uptade from the world
-        </p>
+            <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
+                "jan": [<br />
+                {<br />
+                "date": "2020-01-25",<br />
+                "confirmed": "1434",<br />
+                "recovered": "39",<br />
+                "deaths": "42",<br />
+                "increase_rate": "52.39107332624867"<br />
+                },<br />
+                {<br />
+                "date": "2020-01-26",<br />
+                "confirmed": "2118",<br />
+                "recovered": "52",<br />
+                "deaths": "56",<br />
+                "increase_rate": "47.69874476987448"<br />
+                },<br />
+                ...
+            </div>
 
+            <br />
 
-        <br />
+            <p class="ml-6 text-gray-700">
+                Returns from world where the value of <span class="bg-gray-200 rounded">:field</span> is greater than
+                <span class="bg-gray-200 rounded">:value</span> <br />
 
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/world/total/time/where/:field/smaller/:value
+                <span class="bg-gray-200 rounded">:field</span> can be <span
+                    class="bg-gray-200 rounded">confirmed</span>,
+                <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span>
+                <br />
+
+                <snan class="bg-gray-200 rounded">:value</snan> is an integer value
             </p>
+
+            <br />
         </div>
-
-        <br />
-
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "jan": [<br />
-            {<br />
-            "date": "2020-01-22",<br />
-            "confirmed": "555",<br />
-            "recovered": "28",<br />
-            "deaths": "17",<br />
-            "increase_rate": ""<br />
-            },<br />
-            {<br />
-            "date": "2020-01-23",<br />
-            "confirmed": "654",<br />
-            "recovered": "30",<br />
-            "deaths": "18",<br />
-            "increase_rate": "17.83783783783784"<br />
-            },<br />
-            ...
-        </div>
-
-        <br />
-
-        <p class="ml-6 text-gray-700">
-            Returns from world where the value of <span class="bg-gray-200 rounded">:field</span> is smaller than <span
-                class="bg-gray-200 rounded">:value</span> <br />
-
-            <span class="bg-gray-200 rounded">:field</span> can be <span class="bg-gray-200 rounded">confirmed</span>,
-            <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span> <br />
-
-            <snan class="bg-gray-200 rounded">:value</snan> is an integer value
-        </p>
-
-        <br />
-
-        <div class="flex items-center justify-start ml-6">
-            <p class="bg-gray-200 text-red-600 rounded">
-                GET /v1/world/total/time/where/:field/greater/:value
-            </p>
-        </div>
-
-        <br />
-
-        <div class="text-gray-700 ml-6 bg-gray-200 rounded w-1/5">
-            "jan": [<br />
-            {<br />
-            "date": "2020-01-25",<br />
-            "confirmed": "1434",<br />
-            "recovered": "39",<br />
-            "deaths": "42",<br />
-            "increase_rate": "52.39107332624867"<br />
-            },<br />
-            {<br />
-            "date": "2020-01-26",<br />
-            "confirmed": "2118",<br />
-            "recovered": "52",<br />
-            "deaths": "56",<br />
-            "increase_rate": "47.69874476987448"<br />
-            },<br />
-            ...
-        </div>
-
-        <br />
-
-        <p class="ml-6 text-gray-700">
-            Returns from world where the value of <span class="bg-gray-200 rounded">:field</span> is greater than <span
-                class="bg-gray-200 rounded">:value</span> <br />
-
-            <span class="bg-gray-200 rounded">:field</span> can be <span class="bg-gray-200 rounded">confirmed</span>,
-            <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span> <br />
-
-            <snan class="bg-gray-200 rounded">:value</snan> is an integer value
-        </p>
-
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
