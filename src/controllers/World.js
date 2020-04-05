@@ -17,11 +17,7 @@ class World {
     let data = await this.parser.parseToJson('https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv')
     const lowerObj = lowerCaseKeys(data);
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'date'), function (value, key) {
-      return key.toLowerCase();
-    });
-
-    let formatedJSON = formatDates(data);
+    let formatedJSON = formatDates(lowerObj);
 
     formatedJSON = _.mapValues(formatedJSON, function(o){
       if(o[0]){return o}
@@ -62,11 +58,7 @@ class World {
 
     const { field, value } = request.params;
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'date'), function (value, key) {
-      return key.toLowerCase();
-    });
-
-    data = _.mapValues(data, function (o) {
+    data = _.mapValues(lowerObj, function (o) {
       if (o !== undefined && parseInt(o[field]) < value) return o
       return
     });
@@ -86,11 +78,7 @@ class World {
 
     const { field, value } = request.params;
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'date'), function (value, key) {
-      return key.toLowerCase();
-    });
-
-    data = _.mapValues(data, function (o) {
+    data = _.mapValues(lowerObj, function (o) {
       if (o !== undefined && parseInt(o[field]) > value) return o
       return
     });
