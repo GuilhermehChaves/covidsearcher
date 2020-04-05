@@ -7,7 +7,7 @@
 ```json
 "australia": {
 "country_region": "Australia",
-"last_update": "2020-04-04 02:23:22",
+"date": "2020-04-04",
 "lat": "-25.0",
 "long_": "133.0",
 "confirmed": "5330",
@@ -17,7 +17,7 @@
 },
 "austria": {
 "country_region": "Austria",
-"last_update": "2020-04-04 02:17:00",
+"date": "2020-04-04",
 "lat": "47.5162",
 "long_": "14.5501",
 "confirmed": "11524",
@@ -35,7 +35,7 @@ Returns the latest information about total cases of countries.
 ```json
 {
 "country_region": "Australia",
-"last_update": "2020-04-04 02:23:22",
+"date": "2020-04-04",
 "lat": "-25.0",
 "long_": "133.0",
 "confirmed": "5330",
@@ -53,7 +53,7 @@ Returns the latest information about total cases of an specific country
 "jan": [
 {
 "country_region": "Australia",
-"last_update": "2020-01-22",
+"date": "2020-01-22",
 "confirmed": "0",
 "deaths": "0",
 "recovered": "",
@@ -63,7 +63,7 @@ Returns the latest information about total cases of an specific country
 },
 {
 "country_region": "Australia",
-"last_update": "2020-01-23",
+"date": "2020-01-23",
 "confirmed": "0",
 "deaths": "0",
 "recovered": "",
@@ -81,7 +81,7 @@ Returns data from an specific country per time
 ```json
 "australia": {
 "country_region": "Australia",
-"last_update": "2020-04-04 02:23:22",
+"date": "2020-04-04",
 "lat": "-25.0",
 "long_": "133.0",
 "confirmed": "5330",
@@ -91,7 +91,7 @@ Returns data from an specific country per time
 },
 "austria": {
 "country_region": "Austria",
-"last_update": "2020-04-04 02:17:00",
+"date": "2020-04-04",
 "lat": "47.5162",
 "long_": "14.5501",
 "confirmed": "11524",
@@ -113,7 +113,7 @@ Returns countries where the value of `:field` is smaller than `:value`
 ```json
 "china": {
 "country_region": "China",
-"last_update": "2020-04-04 01:13:08",
+"date": "2020-04-04",
 "lat": "30.5928",
 "long_": "114.3055",
 "confirmed": "82518",
@@ -123,7 +123,7 @@ Returns countries where the value of `:field` is smaller than `:value`
 },
 "france": {
 "country_region": "France",
-"last_update": "2020-04-04 02:17:00",
+"date": "2020-04-04",
 "lat": "46.2276",
 "long_": "2.2137",
 "confirmed": "65202",
@@ -146,7 +146,7 @@ Returns countries where the value of `:field` is greater than `:value`
   "jan": [
 {
 "country_region": "Australia",
-"last_update": "2020-01-22",
+"date": "2020-01-22",
 "confirmed": "0",
 "deaths": "0",
 "recovered": "",
@@ -156,7 +156,7 @@ Returns countries where the value of `:field` is greater than `:value`
 },
 {
 "country_region": "Australia",
-"last_update": "2020-01-23",
+"date": "2020-01-23",
 "confirmed": "0",
 "deaths": "0",
 "recovered": "",
@@ -181,7 +181,7 @@ Returns dates from an specific `:country` where the value of `:field` is smaller
 "apr": [
 {
 "country_region": "Australia",
-"last_update": "2020-04-02",
+"date": "2020-04-02",
 "confirmed": "5116",
 "deaths": "24",
 "recovered": "",
@@ -191,7 +191,7 @@ Returns dates from an specific `:country` where the value of `:field` is smaller
 },
 {
 "country_region": "Australia",
-"last_update": "2020-04-03",
+"date": "2020-04-03",
 "confirmed": "5330",
 "deaths": "28",
 "recovered": "",
