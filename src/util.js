@@ -7,6 +7,7 @@ exports.lowerCaseKeys = (obj) => {
   _.mapKeys(obj, function (value, key) {
     _.transform(value, function (result, val, key) {
       if (key == "Last_Update") key = "date";
+      if (key == "Long_") key = "long";
       result[key.toLowerCase().replace(' ', '_')] = val;
       lowerObj.push(result);
     });
