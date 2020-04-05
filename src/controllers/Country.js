@@ -56,10 +56,6 @@ class Country {
       })
     );
 
-    data = _.keyBy(data, 'date', function (value, key) {
-      return key
-    });
-
     let formatedJSON = formatDates(data);
 
     formatedJSON = _.mapValues(formatedJSON, function (o) {
@@ -82,10 +78,6 @@ class Country {
         return
       })
     );
-
-    data = _.keyBy(data, 'date', function (value, key) {
-      return key.toLowerCase();
-    });
 
     data = _.mapValues(data, function (o) {
       if (o !== undefined && parseInt(o[field]) < value) return o;
@@ -114,10 +106,6 @@ class Country {
         return
       })
     );
-
-    data = _.keyBy(data, 'date', function (value, key) {
-      return key.toLowerCase();
-    });
 
     data = _.mapValues(data, function (o) {
       if (o !== undefined && parseInt(o[field]) > value) return o;

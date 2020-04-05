@@ -34,7 +34,7 @@ exports.formatDates = (obj) => {
 
   _.mapKeys(obj, function (value, key) {
     if (value != undefined) {
-      switch (key.split("-")[1]) {
+      switch (value.date.split("-")[1]) {
         case "01":
           formatedJSON.jan.push(value);
           return;
