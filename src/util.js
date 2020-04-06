@@ -3,15 +3,17 @@ const moment = require('moment');
 
 exports.lowerCaseKeys = (obj) => {
   var lowerObj = []
+  var currentKey = null;
 
-  _.mapKeys(obj, function (value, key) {
-    _.transform(value, function (result, val, key) {
-      if (key == "Last_Update") key = "date";
-      if (key == "Long_") key = "long";
-      result[key.toLowerCase().replace(' ', '_')] = val;
-      lowerObj.push(result);
+  _.mapKeys(obj, function (value, keyA) {
+    _.transform(value, function (result, val, keyB) {
+      if (keyB == "Last_Update") keyB = "date";
+      if (keyB == "Long_") keyB = "long";
+      result[keyB.toLowerCase().replace(' ', '_')] = val;
+      if (currentKey != keyA) lowerObj.push(result);
+      currentKey = keyA;
     });
-    return key.toLowerCase()
+    return keyA.toLowerCase()
   });
 
   return lowerObj;
