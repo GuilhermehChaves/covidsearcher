@@ -1,6 +1,7 @@
 const express = require('express');
 
 const routes = require('./Route');
+const userCounter = require('./middlewares/userCounter');
 
 class App {
   constructor(){
@@ -10,6 +11,7 @@ class App {
 
   middlewares(){
     this.server.use(express.json());
+    this.server.use(userCounter);
   }
 
   routes(){

@@ -10,6 +10,7 @@
     "prod:start": "pm2-runtime ./src/server.js"
   },
   "dependencies": {
+    "@pm2/io": "^4.3.3",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
