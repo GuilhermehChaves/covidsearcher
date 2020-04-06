@@ -59,7 +59,7 @@
     semver "^5.5.0"
     ws "^5.1.0"
 
-"@pm2/io@^4.3.2":
+"@pm2/io@^4.3.2", "@pm2/io@^4.3.3":
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/@pm2/io/-/io-4.3.3.tgz#3a719da5b0897718173d51ab313d25d7e1471c9b"
   integrity sha512-ENGsdSVpnwbYMGdeB0/Xy2eZYo7oltzApoCsMD4ssqWNXDg9C4uQZy5J09iPsb0IHFwSDjU5oylXdwKDSoqODw==
