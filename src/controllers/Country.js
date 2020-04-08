@@ -1,7 +1,8 @@
-const _ = require('lodash');
+const _ = require("lodash");
+const { resolve } = require("path");
 
-const CSVParser = require('../csv/CSVParser');
-const { lowerCaseKeys, formatDates, standardizeDate } = require('../util');
+const CSVParser = require("../csv/CSVParser");
+const { lowerCaseKeys, formatDates, standardizeDate } = require("../util");
 
 class Country {
   constructor() {
@@ -13,15 +14,18 @@ class Country {
     this.greaterThan = this.greaterThan.bind(this);
     this.casesSmallerByTime = this.casesSmallerByTime.bind(this);
     this.casesGreaterByTime = this.casesGreaterByTime.bind(this);
+    this.population = this.population.bind(this);
   }
 
   async allTotalCases(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv');
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
 
     data = standardizeDate(
-      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase().replace(new RegExp(" ", "g"), '_');
+      _.mapKeys(_.keyBy(lowerObj, "country_region"), (value, key) => {
+        return key.toLowerCase().replace(new RegExp(" ", "g"), "_");
       })
     );
 
@@ -29,13 +33,15 @@ class Country {
   }
 
   async totalCases(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv');
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
     const { country } = request.params;
 
     data = standardizeDate(
-      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase().replace(new RegExp(" ", "g"), '_');
+      _.mapKeys(_.keyBy(lowerObj, "country_region"), (value, key) => {
+        return key.toLowerCase().replace(new RegExp(" ", "g"), "_");
       })
     );
 
@@ -43,117 +49,129 @@ class Country {
   }
 
   async casesByTime(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_time.csv');
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_time.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
-    let { country } = request.params;
+    const { country } = request.params;
 
     data = standardizeDate(
-      _.mapValues(lowerObj, function (o) {
-        if (o != undefined && o.country_region.toLowerCase() == country) {
-          return o;
-        }
-        return
+      _.mapValues(lowerObj, (o) => {
+        return o !== undefined && o.country_region.toLowerCase() === country
+          ? o
+          : undefined;
       })
     );
 
     let formatedJSON = formatDates(data);
 
-    formatedJSON = _.mapValues(formatedJSON, function (o) {
-      if (o[0]) { return o }
+    formatedJSON = _.mapValues(formatedJSON, (o) => {
+      return o[0] ? o : undefined;
     });
 
     return response.json(formatedJSON);
   }
 
   async casesSmallerByTime(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_time.csv');
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_time.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
-    let { country, field, value } = request.params;
+    const { country, field, value } = request.params;
 
     data = standardizeDate(
-      _.mapValues(lowerObj, function (o) {
-        if (o != undefined && o.country_region.toLowerCase() == country) {
-          return o
-        };
-        return
+      _.mapValues(lowerObj, (o) => {
+        return o !== undefined && o.country_region.toLowerCase() === country
+          ? o
+          : undefined;
       })
     );
 
-    data = _.mapValues(data, function (o) {
-      if (o !== undefined && parseInt(o[field]) < value) return o;
-      return
+    data = _.mapValues(data, (o) => {
+      return o !== undefined && parseInt(o[field], 10) < value ? o : undefined;
     });
 
     let formatedJSON = formatDates(data);
 
-    formatedJSON = _.mapValues(formatedJSON, function (o) {
-      if (o[0]) { return o }
+    formatedJSON = _.mapValues(formatedJSON, (o) => {
+      return o[0] ? o : undefined;
     });
 
     return response.json(formatedJSON);
   }
 
   async casesGreaterByTime(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_time.csv');
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_time.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
-    let { country, field, value } = request.params;
+    const { country, field, value } = request.params;
 
     data = standardizeDate(
-      _.mapValues(lowerObj, function (o) {
-        if (o.country_region.toLowerCase() == country) {
-          return o
-        };
-        return
+      _.mapValues(lowerObj, (o) => {
+        return o.country_region.toLowerCase() === country ? o : undefined;
       })
     );
 
-    data = _.mapValues(data, function (o) {
-      if (o !== undefined && parseInt(o[field]) > value) return o;
-      return
-    })
+    data = _.mapValues(data, (o) => {
+      return o !== undefined && parseInt(o[field], 10) > value ? o : undefined;
+    });
 
     let formatedJSON = formatDates(data);
 
-    formatedJSON = _.mapValues(formatedJSON, function (o) {
-      if (o[0]) { return o }
+    formatedJSON = _.mapValues(formatedJSON, (o) => {
+      return o[0] ? o : undefined;
     });
 
     return response.json(formatedJSON);
   }
 
   async smallerThan(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv');
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
     const { field, value } = request.params;
 
     data = standardizeDate(
-      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase().replace(new RegExp(" ", "g"), '_')
+      _.mapKeys(_.keyBy(lowerObj, "country_region"), (val, key) => {
+        return key.toLowerCase().replace(new RegExp(" ", "g"), "_");
       })
     );
 
-    data = _.mapValues(data, function (o) {
-      if (parseInt(o[field]) < value) return o;
-      return
+    data = _.mapValues(data, (o) => {
+      return parseInt(o[field], 10) < value ? o : undefined;
     });
 
     return response.json(data);
   }
 
   async greaterThan(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv');
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
     const { field, value } = request.params;
 
     data = standardizeDate(
-      _.mapKeys(_.keyBy(lowerObj, 'country_region'), function (value, key) {
-        return key.toLowerCase().replace(new RegExp(" ", "g"), '_');
+      _.mapKeys(_.keyBy(lowerObj, "country_region"), (val, key) => {
+        return key.toLowerCase().replace(new RegExp(" ", "g"), "_");
       })
     );
 
-    data = _.mapValues(data, function (o) {
-      if (parseInt(o[field]) > value) return o;
-      return
+    data = _.mapValues(data, (o) => {
+      return parseInt(o[field], 10) > value ? o : undefined;
+    });
+
+    return response.json(data);
+  }
+
+  async population(request, response) {
+    let data = await this.parser.parseToJson(
+      resolve(__dirname, "..", "data", "countries_population.csv")
+    );
+    data = _.mapKeys(_.keyBy(data, "country_region"), (val, key) => {
+      return key.toLowerCase();
     });
 
     return response.json(data);
