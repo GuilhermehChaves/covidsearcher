@@ -1,4 +1,5 @@
 const _ = require("lodash");
+const { resolve } = require("path");
 
 const CSVParser = require("../csv/CSVParser");
 const { lowerCaseKeys, formatDates, standardizeDate } = require("../util");
@@ -13,6 +14,7 @@ class Country {
     this.greaterThan = this.greaterThan.bind(this);
     this.casesSmallerByTime = this.casesSmallerByTime.bind(this);
     this.casesGreaterByTime = this.casesGreaterByTime.bind(this);
+    this.population = this.population.bind(this);
   }
 
   async allTotalCases(request, response) {
@@ -159,6 +161,17 @@ class Country {
 
     data = _.mapValues(data, (o) => {
       return parseInt(o[field], 10) > value ? o : undefined;
+    });
+
+    return response.json(data);
+  }
+
+  async population(request, response) {
+    let data = await this.parser.parseToJson(
+      resolve(__dirname, "..", "data", "countries_population.csv")
+    );
+    data = _.mapKeys(_.keyBy(data, "country_region"), (val, key) => {
+      return key.toLowerCase();
     });
 
     return response.json(data);

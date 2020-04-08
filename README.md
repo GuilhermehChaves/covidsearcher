@@ -209,6 +209,24 @@ Returns dates from an specific `:country` where the value of `:field` is greater
 
 - `:value` is a integer value
 
+`GET /v1/countries/population`
+
+```json
+"china": {
+"country_region": "China",
+"population": "1384689024",
+"year": "2018"
+},
+"india": {
+"country_region": "India",
+"population": "1296834048",
+"year": "2018"
+},
+...
+```
+
+Returns 2018 population of countries
+
 `GET /v1/world/total/time`
 
 ```json

@@ -33,6 +33,7 @@ class Route {
       "/v1/countries/:country/where/:field/greater/:value",
       Country.casesGreaterByTime
     );
+    this.router.get("/v1/countries/population", Country.population);
 
     this.router.get("/v1/world/total/time", World.totalCasesByTime);
     this.router.get("/v1/world/total/time/:date", World.casesByTime);
