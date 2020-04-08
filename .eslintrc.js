@@ -8,7 +8,6 @@ module.exports = {
         "airbnb-base",
         "prettier",
     ],
-    "parser": 'babel-eslint',
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -19,6 +18,7 @@ module.exports = {
     },
     "rules": {
         "prettier/prettier": "error",
-        "no-unused-vars": ["error", {"argsIgnorePattern": "next"} ]
+        "no-unused-vars": ["error", {"argsIgnorePattern": "next"} ],
+        "no-param-reassign": 0
     }
 };

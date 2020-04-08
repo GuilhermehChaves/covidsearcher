@@ -1,7 +1,7 @@
-const _ = require('lodash');
+const _ = require("lodash");
 
-const CSVParser = require('../csv/CSVParser');
-const { lowerCaseKeys, formatDates } = require( '../util');
+const CSVParser = require("../csv/CSVParser");
+const { lowerCaseKeys, formatDates } = require("../util");
 
 class World {
   constructor() {
@@ -14,25 +14,29 @@ class World {
   }
 
   async totalCasesByTime(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv')
+    const data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
 
     let formatedJSON = formatDates(lowerObj);
 
-    formatedJSON = _.mapValues(formatedJSON, function(o){
-      if(o[0]){return o}
+    formatedJSON = _.mapValues(formatedJSON, (o) => {
+      return o[0] ? o : undefined;
     });
 
     return response.json(formatedJSON);
   }
 
   async casesByTime(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv')
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
 
-    let { date } = request.params;
+    const { date } = request.params;
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'date'), function (value, key) {
+    data = _.mapKeys(_.keyBy(lowerObj, "date"), (value, key) => {
       return key.toLowerCase();
     });
 
@@ -40,53 +44,59 @@ class World {
   }
 
   async totalCases(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv')
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
 
-    data = _.mapKeys(_.keyBy(lowerObj, 'date'), function (value, key) {
+    data = _.mapKeys(_.keyBy(lowerObj, "date"), (value, key) => {
       return key.toLowerCase();
     });
 
-    let lastest = _.findLastKey(data, function (o) { return o });
+    const lastest = _.findLastKey(data, (o) => {
+      return o;
+    });
 
     return response.json(data[lastest]);
   }
 
   async casesSmaller(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv')
-    const lowerObj = lowerCaseKeys(data);
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv"
+    );
 
+    const lowerObj = lowerCaseKeys(data);
     const { field, value } = request.params;
 
-    data = _.mapValues(lowerObj, function (o) {
-      if (o !== undefined && parseInt(o[field]) < value) return o
-      return
+    data = _.mapValues(lowerObj, (o) => {
+      return o !== undefined && parseInt(o[field], 10) < value ? o : undefined;
     });
 
     let formatedJSON = formatDates(data);
 
-    formatedJSON = _.mapValues(formatedJSON, function(o){
-      if(o[0]){return o}
+    formatedJSON = _.mapValues(formatedJSON, (o) => {
+      return o[0] ? o : undefined;
     });
 
     return response.json(formatedJSON);
   }
 
   async casesGreater(request, response) {
-    let data = await this.parser.parseToJson('https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv')
+    let data = await this.parser.parseToJson(
+      "https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv"
+    );
     const lowerObj = lowerCaseKeys(data);
 
     const { field, value } = request.params;
 
-    data = _.mapValues(lowerObj, function (o) {
-      if (o !== undefined && parseInt(o[field]) > value) return o
-      return
+    data = _.mapValues(lowerObj, (o) => {
+      return o !== undefined && parseInt(o[field], 10) > value ? o : undefined;
     });
 
     let formatedJSON = formatDates(data);
 
-    formatedJSON = _.mapValues(formatedJSON, function(o){
-      if(o[0]){return o}
+    formatedJSON = _.mapValues(formatedJSON, (o) => {
+      return o[0] ? o : undefined;
     });
 
     return response.json(formatedJSON);

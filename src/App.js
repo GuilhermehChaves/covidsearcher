@@ -1,23 +1,23 @@
-const express = require('express');
+const express = require("express");
 
-const routes = require('./Route');
-const userCounter = require('./middlewares/userCounter');
-const analytics = require('./middlewares/analytics');
+const routes = require("./Route");
+const userCounter = require("./middlewares/userCounter");
+const analytics = require("./middlewares/analytics");
 
 class App {
-  constructor(){
+  constructor() {
     this.server = express();
     this.middlewares();
     this.routes();
   }
 
-  middlewares(){
+  middlewares() {
     this.server.use(express.json());
     this.server.use(userCounter);
     this.server.use(analytics);
   }
 
-  routes(){
+  routes() {
     this.server.use(routes);
   }
 }
