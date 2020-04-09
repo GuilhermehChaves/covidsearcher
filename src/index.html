@@ -41,7 +41,7 @@
 
             <div class="flex items-center justify-start ml-6">
                 <p class="bg-gray-200 text-gray-700 rounded">
-                    Base URL: http://www.covidsearcher.com
+                    Base URL: https://www.covidsearcher.com
                 </p>
             </div>
 
@@ -348,8 +348,8 @@
 
                 <span class="bg-gray-200 rounded">:country</span> is a country name <br />
 
-                <span class="bg-gray-200 rounded">:field</span> can be <span
-                    class="bg-gray-200 rounded">confirmed</span>,
+                <span class="bg-gray-200 rounded">:field</span> can be 
+                <span class="bg-gray-200 rounded">confirmed</span>,
                 <span class="bg-gray-200 rounded">deaths</span>, <span class="bg-gray-200 rounded">recovered</span>
                 <br />
 
@@ -367,22 +367,31 @@
             <br />
 
             <div class="text-gray-700 ml-6 mr-6 bg-gray-200 rounded">
-                "china": {<br />
-                "country_region": "China",<br />
-                "population": "1384689024",<br />
-                "year": "2018"<br />
+                "macau": {<br />
+                "rank": 1,<br />
+                "country_region": "Macau",<br />
+                "density": "21644.5000",<br />
+                "densityMi": "56059.2550",<br />
+                "population": "649.3350",<br />
+                "area": 30<br />
                 },<br />
-                "india": {<br />
-                "country_region": "India",<br />
-                "population": "1296834048",<br />
-                "year": "2018"<br />
+                "monaco": {<br />
+                "rank": 2,<br />
+                "country_region": "Monaco",<br />
+                "density": "19426.7327",<br />
+                "densityMi": "50315.2376",<br />
+                "population": "39.2420",<br />
+                "area": 2.02<br />
                 },<br />
                 ...
             </div>
 
             <br />
 
-            <p class="ml-6 text-gray-700">Returns 2018 population of countries</p>
+            <p class="ml-6 text-gray-700">
+                Returns 2020 population, demographic density and area of countries <br/>
+                Obs: <span class="bg-gray-200 rounded">Some data are strings</span> the area and density are km², desnsityMi is mi²
+            </p>
 
             <br />
 

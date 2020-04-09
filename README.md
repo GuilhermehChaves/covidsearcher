@@ -212,20 +212,28 @@ Returns dates from an specific `:country` where the value of `:field` is greater
 `GET /v1/countries/population`
 
 ```json
-"china": {
-"country_region": "China",
-"population": "1384689024",
-"year": "2018"
+"macau": {
+"rank": 1,
+"country_region": "Macau",
+"density": "21644.5000",
+"densityMi": "56059.2550",
+"population": "649.3350",
+"area": 30
 },
-"india": {
-"country_region": "India",
-"population": "1296834048",
-"year": "2018"
+"monaco": {
+"rank": 2,
+"country_region": "Monaco",
+"density": "19426.7327",
+"densityMi": "50315.2376",
+"population": "39.2420",
+"area": 2.02
 },
 ...
 ```
 
-Returns 2018 population of countries
+ Returns 2020 population, demographic density and area of countries
+
+ Obs: `Some data are strings` the area and density are km², desnsityMi is mi²
 
 `GET /v1/world/total/time`
 
