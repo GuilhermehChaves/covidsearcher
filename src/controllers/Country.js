@@ -1,5 +1,6 @@
 const _ = require("lodash");
 const { resolve } = require("path");
+const fs = require("fs");
 
 const CSVParser = require("../csv/CSVParser");
 const { lowerCaseKeys, formatDates, standardizeDate } = require("../util");
@@ -167,11 +168,12 @@ class Country {
   }
 
   async population(request, response) {
-    let data = await this.parser.parseToJson(
-      resolve(__dirname, "..", "data", "countries_population.csv")
+    let data = JSON.parse(
+      fs.readFileSync(resolve(__dirname, "..", "data", "population.json"))
     );
-    data = _.mapKeys(_.keyBy(data, "country_region"), (val, key) => {
-      return key.toLowerCase();
+
+    data = _.mapKeys(_.keyBy(data.data, "country_region"), (val, key) => {
+      return key.toLowerCase().replace(new RegExp(" ", "g"), "_");;
     });
 
     return response.json(data);
