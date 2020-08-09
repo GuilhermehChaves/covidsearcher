@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 
 const routes = require("./Route");
 const userCounter = require("./middlewares/userCounter");
@@ -12,6 +13,7 @@ class App {
   }
 
   middlewares() {
+    this.server.use(cors());
     this.server.use(express.json());
     this.server.use(userCounter);
     this.server.use(analytics);
